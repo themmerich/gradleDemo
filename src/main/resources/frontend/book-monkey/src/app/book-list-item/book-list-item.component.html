@@ -1,0 +1,10 @@
+<img class="rounded float-start" style="height: 100px; padding-right: 1rem" *ngIf="book.thumbnails && book.thumbnails[0] && book. thumbnails[0].url" [src]="book.thumbnails[0].url">
+<strong>{{ book.title }}</strong>
+<div *ngIf="book.subtitle; else nosubtitle">{{ book.subtitle }}</div>
+<span *ngFor="let author of book.authors; last as l"> {{ author }}<span *ngIf="!l">, </span> </span>
+<br> ISBN {{ book.isbn }}
+<hr class="solid">
+
+<ng-template #nosubtitle>
+  <br><br>
+</ng-template>
